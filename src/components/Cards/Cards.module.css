@@ -1,0 +1,15 @@
+.container{
+    margin:40px 0 !important;
+}
+.card{
+    margin:0 4% !important;
+}
+.confirmed{
+    border-bottom:12px solid rgba(0,0,255,0.7);
+}
+.recovered{
+    border-bottom:12px solid rgba(8, 216, 8, 0.651);
+}
+.deaths{
+    border-bottom:12px solid rgba(255, 0, 0, 0.623);
+}
