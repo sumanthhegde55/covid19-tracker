@@ -19,17 +19,28 @@ export const Datafetch= async (x)=>{
         console.error({err:"error in fetching data"});
     }
 }
-export const DataDaily= async () =>{
+export const DataDaily= async (x) =>{
     try{
-        const {data}=await axios.get(`${url}/daily`);
-        // return res;
-        // console.log(data);
-        const req=data.map((data) =>({
+       if(x===""){
+           const {data}=await axios.get(`${url}/daily`);
+            const req=data.map((data) =>({
             confirmed:data.confirmed.total,
             deaths:data.deaths.total,
-            date:data.reportDate
+            date:data.reportDate,
+            cntry:'US'
         }))
         return req;
+       }
+       else{
+           const {data}= await axios.get(`https://api.rootnet.in/covid19-in/stats/history`);
+            const s=data.data.map((data) =>({
+            confirmed:data.summary.total,
+            deaths:data.summary.deaths,
+            date:data.day,
+            cntry:'india'
+        }))
+        return s;
+    }
     }
     catch(error){
         console.error({err:"error in fetching data"});

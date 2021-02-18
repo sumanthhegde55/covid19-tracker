@@ -13,7 +13,6 @@ const Country = ({cntry}) =>{
         }
         fetchCtry();
     },[setCntry])
-    // console.log(ctry);
     return(
       <FormControl className={styles.FormControl}>
           <NativeSelect onChange={(e) => cntry(e.target.value)}>

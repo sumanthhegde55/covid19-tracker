@@ -6,16 +6,13 @@ import {Line,Bar} from 'react-chartjs-2';
 const Chart = ({data,cntry}) =>{
     const [daily,setDaily]=useState([]);
     useEffect(()=>{
-        const func=async () =>{  
-            // const data=await dailyData();
-            setDaily(await DataDaily());
+        const func=async (cntry) =>{  
+            setDaily(await DataDaily(cntry));
         };
-        // console.log(daily);
-        func(); 
-    },[]);
-    console.log(cntry);
+        func(cntry); 
+    },[cntry]);
     const line=(
-        cntry===""?
+        cntry==="" || cntry=="India"?
         (
             daily!==[]?
             (<Line
@@ -54,9 +51,11 @@ const Chart = ({data,cntry}) =>{
         )
     )
     return(
-       <div className={styles.container}>
+        <>
+        <div className={styles.container}>
           {line}
        </div>
+       </>
     )
 }
 export default Chart
