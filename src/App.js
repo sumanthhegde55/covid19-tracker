@@ -15,7 +15,7 @@ class App extends React.Component {
   }
   handleCtry = async (x) =>{
     const data=await Datafetch(x);
-    this.setState({data,cntry:x});
+      this.setState({data,cntry:x});
   }
   render(){
     const {data,cntry}=this.state;

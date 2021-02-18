@@ -9,6 +9,7 @@ const Chart = ({data,cntry}) =>{
         const func=async (cntry) =>{  
             setDaily(await DataDaily(cntry));
         };
+        // console.log(daily);
         func(cntry); 
     },[cntry]);
     const line=(
